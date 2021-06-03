@@ -6,7 +6,7 @@ section.hero-section{
     background-size:cover;
     background-position:left top;
     background-repeat:no-repeat;
-    background-image:url('/images/hero_bg_new.svg');
+    background-image:url('./images/hero_bg_new.svg');
     margin-top:1.5em;
     padding-left:3em;
     box-sizing: border-box;
@@ -28,7 +28,7 @@ section.hero-section{
             background-size:contain;
             box-shadow:0px 0px 20px 5px rgba(0,0,0,0.05);
             background-position:center; 
-            background-image:url('/images/hero_bg_new.svg');
+            background-image:url('./images/hero_bg_new.svg');
             background-repeat: no-repeat;
             margin: 2em auto;
             margin-top:3em;
@@ -84,7 +84,7 @@ section.hero-section{
         &>i{
             display:inline-block;
             background-size:contain;
-            background-image:url('/images/Vector.svg');
+            background-image:url('./images/Vector.svg');
             background-position:center;
             margin-left:1em;
             width:1.5em;

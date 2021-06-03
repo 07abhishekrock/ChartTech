@@ -18,7 +18,7 @@ nav > i.main-logo {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/images/logo.svg");
+  background-image: url("./images/logo.svg");
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
 }
 nav > ul.nav-list {
@@ -65,7 +65,7 @@ nav > span.burger {
   right: 1em;
   background-size: contain;
   background-position: center;
-  background-image: url("/images/burger_chart.svg");
+  background-image: url("./images/burger_chart.svg");
   border-radius: 50%;
   background-color: transparent;
   transform: translateY(-50%);
@@ -83,7 +83,7 @@ section.hero-section {
   background-size: cover;
   background-position: left top;
   background-repeat: no-repeat;
-  background-image: url("/images/hero_bg_new.svg");
+  background-image: url("./images/hero_bg_new.svg");
   margin-top: 1.5em;
   padding-left: 3em;
   box-sizing: border-box;
@@ -110,7 +110,7 @@ section.hero-section {
     background-size: contain;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
     background-position: center;
-    background-image: url("/images/hero_bg_new.svg");
+    background-image: url("./images/hero_bg_new.svg");
     background-repeat: no-repeat;
     margin: 2em auto;
     margin-top: 3em;
@@ -171,7 +171,7 @@ section.hero-section > a {
 section.hero-section > a > i {
   display: inline-block;
   background-size: contain;
-  background-image: url("/images/Vector.svg");
+  background-image: url("./images/Vector.svg");
   background-position: center;
   margin-left: 1em;
   width: 1.5em;
@@ -247,7 +247,7 @@ div.steps-outer > div.live-step-demo::after {
 div.steps-outer > div.live-step-demo > div.live-step-image {
   width: 600px;
   height: calc(600px * calc(537 / 782));
-  background-image: url("/images/window_screen.svg");
+  background-image: url("./images/window_screen.svg");
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
@@ -503,11 +503,11 @@ section.plans-section > div.plans > div.plan > i {
   background-position: center;
 }
 section.plans-section > div.plans > div.plan.single > i {
-  background-image: url("/images/single_user_icon.svg");
+  background-image: url("./images/single_user_icon.svg");
   background-color: #00B2A8;
 }
 section.plans-section > div.plans > div.plan.team > i {
-  background-image: url("/images/team_icon.svg");
+  background-image: url("./images/team_icon.svg");
   background-color: #FF9675;
 }
 section.plans-section > div.plans > div.plan > h2 {
@@ -580,7 +580,7 @@ footer > div.footer-info > i.footer-icon {
   border-radius: 50%;
   margin-bottom: 1em;
   margin-top: 2em;
-  background-image: url("/images/logo.svg");
+  background-image: url("./images/logo.svg");
   background-position: center;
   background-size: contain;
 }
@@ -702,7 +702,7 @@ div.modal-wrapper > div.modal-inner > span.cross {
   background-color: #5CB5FF;
   cursor: pointer;
   display: Inline-block;
-  background-image: url("/images/cross.svg");
+  background-image: url("./images/cross.svg");
   background-size: contain;
   background-position: center;
 }
@@ -873,7 +873,7 @@ div.dashboard-wrapper > div.sidebar > i {
   height: 4em;
   background-color: black;
   border-radius: 50%;
-  background-image: url("/images/profile.svg");
+  background-image: url("./images/profile.svg");
   background-size: contain;
   background-position: center;
   display: inline-block;

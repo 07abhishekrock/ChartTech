@@ -35,11 +35,11 @@ section.plans-section{
                 
             }
             &.single>i{
-                background-image:url('/images/single_user_icon.svg');
+                background-image:url('./images/single_user_icon.svg');
                 background-color:variables.$my_green;
             }
             &.team>i{
-                background-image:url('/images/team_icon.svg');
+                background-image:url('./images/team_icon.svg');
                 background-color:variables.$my_orange;
             }
             &>h2{
