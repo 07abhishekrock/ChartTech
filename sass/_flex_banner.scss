@@ -1,0 +1,149 @@
+@use './variables' as variables;
+section.flex-banner{
+    font-family:variables.$heading_font;
+    display:flex;
+    margin-top:8em;
+    margin-bottom:0px;
+    align-items:center;
+    padding-left:4em;
+    justify-content:space-between;
+    box-sizing: border-box;
+    position:relative;
+    &>h1{
+        font-size:3.5em;
+        margin:0px;
+        width:500px;
+    }
+    &>div.flex-banner-outer{
+        width:800px;
+        height:calc(800px * (593 / 960));
+        position:relative;
+        &::after{
+            position:absolute;
+            bottom:0px;
+            content:"";
+            width:70%;
+            height:60%;
+            z-index:-1;
+        }
+        &>div.flex-banner-image{
+            background-size:contain;
+            background-position:center top;
+            width:550px;
+            position:absolute;
+            height:calc(550px * calc(537 / 780));
+            background-color:transparent;
+            background-repeat: no-repeat;
+        }
+        
+    }
+    &.left>div.flex-banner-outer::after{
+        border-radius:10em 0px 0px 10em;
+        right:0px;
+        background-color:variables.$my_yellow;
+    }
+    &.right>div.flex-banner-outer::after{
+        left:0px;
+        border-radius:0px 10em 10em 0px;
+        background-color:variables.$my_orange;
+    }
+    &.left>div.flex-banner-outer>div.flex-banner-image{
+        top:0px;
+        right:4em;
+    }
+    &.right>div.flex-banner-outer>div.flex-banner-image{
+        top:0px;
+        left:4em;
+    }
+    &.right{
+        flex-flow:row-reverse;
+        padding-right:4em;
+        padding-left:0px;
+    }
+
+
+    @media only screen and (max-width:1160px){
+        justify-content:flex-end;
+        &.right{
+            padding-right:2em;
+        }
+        &.left{
+            padding-left:2em;
+        }
+        &>h1{
+            font-size:2.7em;
+            flex-shrink:2;
+        }
+    }
+    @media only screen and (max-width:1036px){
+        &.right{
+            padding-right:2em;
+            &>div.flex-banner-outer>div.flex-banner-image{
+                top:2em;
+            }
+        }
+        &.left{
+            padding-left:2em;
+            &>div.flex-banner-outer>div.flex-banner-image{
+                top:2em;
+            }
+        }
+        &>h1{
+            font-size:2.5em;
+            flex-shrink:2;
+        }
+        &>div.flex-banner-outer{
+            width:600px;
+            height:calc(600px * calc(593 / 960));
+            &>div.flex-banner-image{
+                width:400px;
+                top:2em;
+                height:calc(400px * calc(537 / 780));
+            }
+        }
+    }
+
+    @media only screen and (max-width:900px){
+        flex-flow:column-reverse;
+        &.right{
+            padding-left:0px;
+            padding-right:0px;
+            flex-flow:column-reverse;
+        }
+        &.left{
+            padding-right: 0px;
+            padding-left:0px;
+        }
+        &>h1{
+            text-align:center;
+        }
+        &>div.flex-banner-outer{
+            position:static;
+            height:auto;
+            margin-bottom:6em;
+            &::after{
+                top:10%;
+            }
+            &>div.flex-banner-image{
+                position:static;
+                margin:0 auto;
+            }
+        }
+    }
+
+    @media only screen and (max-width:620px){
+       &>h1{
+            font-size:1.8em;
+            width:80%;
+            margin:0 auto;
+       }
+       &>div.flex-banner-outer{
+           width:95%;
+           &>div.flex-banner-image{
+               width:100%;
+               height:calc(80vw * (537 / 780));
+           }
+       } 
+    }
+
+}

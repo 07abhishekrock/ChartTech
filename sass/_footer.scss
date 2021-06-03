@@ -1,0 +1,96 @@
+@use './variables' as variables;
+
+footer{
+    display:flex;
+    border-radius:3em 3em 0px 0px;
+    background-color:variables.$my_black;
+    align-items:center;
+    color:white;
+    padding:2em 4em;
+    box-sizing: border-box;
+    font-family:variables.$text_font;
+    margin-top:8em;
+    &>div.footer-info{
+        flex-basis:70%;
+        &>i.footer-icon{
+            width:6em;
+            height:6em;
+            display:inline-block;
+            background-color:white;
+            border-radius:50%;
+            margin-bottom:1em;
+            margin-top:2em;
+            background-image:url('/images/logo.svg');
+            background-position:center;
+            background-size:contain;
+        }
+        &>h2{
+            font-family:variables.$heading_font;
+            font-size:3em;
+            margin-bottom:0px;
+            margin-top:0px;
+            &>i{
+                font-style:normal;
+                font-weight:500;
+            }
+        }
+        &>span{
+            color:lightgray;
+            font-weight:600;
+            font-size:1.5em;
+            display:block;
+            margin:0.5em 0px;
+            margin-bottom:1em;
+        }
+        &>button{
+            font-family:inherit;
+            font-weight:600;
+            border:0px;
+            padding:0.5em 2em;
+            font-size:1.3em;
+            border-radius:4em;
+            display:block;
+            margin:0.5em 0px;
+            color:white;
+            &.login{
+                background-color:variables.$my_orange;
+            }
+            &.signup{
+                background-color:variables.$my_green;
+            }
+        }
+    }
+    &>div.footer-links{
+        width:300px;
+        border-left:3px solid white;
+        display:flex;
+        flex-flow:column;
+        padding-left:1em;
+        &>a{
+            margin:0.5em 0px;
+            color:inherit;
+            font-size:1.1em;
+            text-decoration:None;
+            font-family:inherit;
+            font-weight:600;
+        }
+    }
+
+    @media only screen and (max-width:730px){
+        flex-flow:column; 
+        text-align:center;
+        &>div.footer-links{
+            border-top:5px solid white;
+            border-left:0px;
+            padding-top:2em;
+            margin-top:2em;
+            padding-left:0px;
+        }
+        &>div.footer-info{
+            &>button{
+                margin:0.5em auto;
+            }
+        }
+    }
+
+}

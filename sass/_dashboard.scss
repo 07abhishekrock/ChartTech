@@ -1,0 +1,190 @@
+@use './variables' as variables;
+
+div.dashboard-wrapper{
+    display:flex;
+    margin-top:4em;
+    justify-content:space-between;
+    font-family:variables.$text_font;
+    &>div.sidebar{
+        flex-shrink:0;
+        width:300px;
+        background-color:variables.$my_gray;
+        border-radius:0px 0.5em 0.5em 0px;
+        display:flex;
+        flex-flow:column;
+        align-items:center;
+        justify-content:flex-start;
+        padding:2em 0px;
+        &>i{
+            width:4em;
+            height:4em;
+            background-color:black;
+            border-radius:50%;
+            background-image:url('/images/profile.svg');
+            background-size:contain;
+            background-position:center;
+            display:inline-block;
+        }
+        &>span.email{
+            display:block;
+            text-align:center;
+            font-size:0.8em;
+            margin:1em 0px;
+            font-weight:600;
+        }
+        &>div.sidebar-links{
+            &>span.sidebar-link{
+                border-radius:2em;
+                display:block;
+                padding:0.3em 1em;
+                margin:0.5em 0px;
+                font-weight:700;
+                border:3px solid black;
+                cursor:pointer;
+                &.yellow{
+                    border-color:variables.$my_yellow;
+                    color:variables.$my_yellow;
+                    &:hover{
+                        background-color:variables.$my_yellow;
+                        color:white;
+                    }
+                }
+                &.blue{
+                    border-color:variables.$my_blue;
+                    color:white;
+                    background-color:variables.$my_blue;
+                    &:hover{
+                        background-color:variables.$my_blue;
+                        color:white;
+                    }
+                }
+                &.green{
+                    border-color:variables.$my_green;
+                    color:variables.$my_green;
+                    &:hover{
+                        background-color:variables.$my_green;
+                        color:white;
+                    }
+                }
+            }
+        }
+    }
+
+    div.main-window{
+        width:calc(100% - 450px);
+        background-color:variables.$my_gray;
+        border-radius:0.5em 0px 0px 0.5em;
+        padding-top:2em;
+        @media screen and (max-width:950px){
+            width:calc(100% - 410px);
+        }
+        &>h2{
+            background-color:variables.$my_blue;
+            display:inline-block;
+            color:white;
+            padding:0.3em 3em;
+            border-radius:0px 2em 2em 0px;
+            margin-top:0px;
+            margin-bottom:2em;
+        }
+        &>div.data-groups{
+            padding-left:2em;
+            &>div.data-group{
+                display:flex;
+                margin:2em 0px;
+                align-items:center;
+                &>span.label{
+                    text-transform:uppercase;
+                    width:150px;
+                    flex-shrink:0;
+                    font-weight:bold;
+                }
+                &>span.input{
+                    padding:0.5em 1em;
+                    font-weight:550;
+                    background-color:#f2f2f2;
+                    border-radius:0.3em;
+                }
+                &>span.status{
+                    color:variables.$my_green;
+                    font-weight: bold;
+                }
+            }
+        }
+
+    }
+
+    @media screen and (max-width:860px){
+        flex-flow:column;
+        align-items:center;
+        &>div.sidebar{
+            padding:4em 0px;
+            text-align:center;
+            border-radius:0px;
+            width:100%;
+            &>div.sidebar-links{
+                display:flex;
+                margin-top:1.5em;
+                &>span.sidebar-link{
+                    margin:0px 0.5em;
+                }
+            }
+        }
+
+        &>div.main-window{
+            width:100%;
+            background-color:Initial;
+            padding-top:0px;
+            &>h2{
+                display:block;
+                text-align:center;
+                box-sizing: border-box;
+                border-radius:0px;
+            }
+            &>div.data-groups{
+                width:400px;
+                margin:0 auto;
+                padding-left:0px;
+                &>div.data-group{
+                    justify-content:space-between;
+                    &>span.input{
+                        width:250px;
+                        box-sizing: border-box;
+                    }
+                    &>span.status{
+                        width:250px;
+                    }
+                }
+            }
+        }
+    }
+    
+    @media screen and (max-width:470px){
+        &>div.sidebar{
+            &>div.sidebar-links{
+                display:block;
+                &>span.sidebar-link{
+                    margin:0.8em 0px;
+                }
+            }
+        }
+        &>div.main-window{
+            &>div.data-groups{
+                    width:auto;
+                &>div.data-group{
+                    flex-flow:column;
+                    &>span.label{
+                        width:auto;
+                        margin-bottom:1em;
+                    }
+                    &>span.input{
+                        width:auto;
+                    }
+                    &>span.status{
+                        width:auto;
+                    }
+                }
+            }
+        }
+    }
+}

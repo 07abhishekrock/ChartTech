@@ -1,0 +1,77 @@
+@use './variables' as variables;
+$nav_small_screen_limit : 630px;
+
+nav{
+    display:flex;
+    font-family:variables.$text_font;
+    padding:1em;
+    margin-top:1em;
+    color:variables.$my_black;
+    position:relative;
+    box-sizing: border-box;
+    justify-content:space-between;
+    &>i.main-logo{
+        width:2.5em;
+        height:2.5em;
+        display:inline-block;
+        border-radius:50%;
+        background-size:contain;
+        background-position:center;
+        background-repeat:no-repeat;
+        background-image:url('/images/logo.svg');
+        box-shadow:0px 0px 20px 5px rgba(0,0,0,0.05);
+    }
+    &>ul.nav-list{
+        display:flex;
+        list-style:none;
+        margin:0px;
+        justify-content:flex-end;
+        padding-left:0px;
+        align-items:center;
+        &>li{
+            font-size:1em;
+            font-weight:600;
+            text-transform:uppercase;
+            margin:0px 1em;
+            cursor:pointer;
+            &:hover{
+                font-weight:bolder;
+            }
+        }
+
+        @media only screen and (max-width:$nav_small_screen_limit){
+            position:absolute;
+            flex-flow:column;
+            width:100%;
+            align-items:flex-start;
+            background-color:white;
+            left:0px;
+            padding-left:1.5em;
+            transform:translateY(-200%);
+            &>li{
+                margin:0.4em 0px;
+            }
+        }
+
+    }
+
+    &>span.burger{
+        width:3em;
+        height:3em;
+        display:None;
+        position:absolute;
+        background-color:black;
+        flex-shrink:0;
+        top:50%;
+        right:1em;
+        background-size:contain;
+        background-position:center;
+        background-image:url('/images/burger_chart.svg');
+        border-radius:50%;
+        background-color:transparent;
+        transform:translateY(-50%);
+        @media only screen and (max-width:$nav_small_screen_limit){
+            display:inline-block;
+        }
+    }
+}

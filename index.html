@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartTech Website</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   <nav>
+       <i class="main-logo"></i>
+       <ul class="nav-list">
+           <li>About</li>
+           <li>Docs</li>
+           <li onclick="openLogin()">Login</li>
+           <li onclick="openSignUp()">Signup</li>
+       </ul>
+       <span class="burger"></span>
+   </nav>  
+
+   <div class="modal-wrapper">
+       <div class="modal-inner login">
+           <span class="cross" onclick="closeModal()"></span>
+           <div class="modal-left-bg">
+               <span>LOGIN</span>
+            </div>
+           <span class="header-text">Login to get your api key , stats and related information.</span>
+           <div class="form-wrapper">
+               <div class="forms" >
+                   <div class="form">
+                        <div class="input-group">
+                            <span class="label">Email</span>
+                            <input type="text"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="label">Password</span>
+                            <input type="password"/>
+                        </div>
+                        <a class="center-btn">Login</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="modal-inner signup">
+           <span class="cross" onclick="closeModal()"></span>
+           <div class="modal-left-bg">
+               <span>SIGN UP</span>
+           </div>
+           <span class="header-text">You need to register to use our API.</span>
+           <div class="form-wrapper">
+               <div class="forms">
+                   <div class="form">
+                       <div class="input-group">
+                           <span>EMAIL</span>
+                           <input type="text"/>
+                       </div>
+                       <div class="input-group">
+                           <span>PASSWORD</span>
+                           <input type="password"/>
+                       </div>
+                       <div class="input-group">
+                           <span>CONFIRM PASSWORD</span>
+                           <input type="password"/>
+                       </div>
+                       <a class="center-btn" onclick="moveToPageIndex(1)">Next</a>
+                   </div>
+
+                   <div class="form">
+                       <div class="input-group">
+                           <span>Username</span>
+                           <input type="text"/>
+                       </div>
+                       <div class="input-group">
+                           <span>Choose Plan</span>
+                           <div class="plans">
+                                <div class="plan" onclick="setSelectedState('single')">
+                                    <i></i>
+                                    <h3>Single</h3>
+                                    <span>Rs 100/- Per Month</span>
+                                </div>
+                                <div class="plan selected" onclick="setSelectedState('team')">
+                                    <i></i>
+                                    <h3>Team</h3>
+                                    <span>Rs 200/- Per Month</span>
+                                </div>
+                           </div>
+                       </div>
+                       <a class="center-btn" href="https://razorpay.com/payment-button/pl_HIF191QhDGPrZU/view/?utm_source=payment_button&utm_medium=button&utm_campaign=payment_button">Pay Now</a>
+                   </div>
+
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <section class="hero-section">
+        <i class="small-screen-icon"></i>
+        <h1>Charts<i>Tech</i></h1>
+        <span>Clear and Precise data visualisation for your website is just one API away ...</span>
+        <a href="#">Get Started <i></i></a>
+   </section>
+
+   <section class="steps-section alter">
+       <h1 class="section-heading">Data Visualisation on Websites was never Easier ...</h1>
+       <div class="steps-outer">
+        <div class="steps-wrapper">
+            <div class="steps">
+                <div class="step">
+                    <h2>Step 1</h2>
+                    <p>Create a free account on chatsTech.io<br/>It takes less than a minute to create one.</p>
+                </div>
+                <div class="step">
+                    <h2>Step 2</h2>
+                    <p>Signup for a plan , single or team based on your requirement.</p>
+                </div>
+                <div class="step">
+                    <h2>Step 3</h2>
+                    <p>Get your api key and credentials. Start with the docs and we are ready to roll.</p>
+                </div>
+            </div>
+            <div class="step-slider">
+                <span class="selected"></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="live-step-demo">
+            <div class="live-step-image">
+            </div>
+            <div class="live-step-image">
+            </div>
+            <div class="live-step-image">
+            </div>
+        </div>
+
+       </div>
+   </section>
+
+   <section class="flex-banner right">
+        <h1>One Endpoint<br/>Infinite Graph Options.</h1>
+        <div class="flex-banner-outer">
+            <div class="flex-banner-image" style="background-image:url(/images/charts_and_graphs.svg)"></div>
+        </div>
+   </section>
+
+   <section class="flex-banner left">
+        <h1>Simple to integrate with your applications.</h1>
+        <div class="flex-banner-outer">
+            <div class="flex-banner-image" style="background-image:url(/images/code_snippet.svg)"></div>
+        </div>
+   </section>
+
+   <section class="plans-section">
+       <h1 class="section-heading">Plans that are reasonable.</h1>
+       <div class="plans">
+           <div class="plan single" onclick="openSignUp()">
+               <i></i>
+               <h2>Single</h2>
+               <p>Plan for individuals, who are their own boss.</p>
+               <button>Signup</button>
+           </div>
+           <div class="plan team" onclick="openSignUp()">
+               <i></i>
+               <h2>Team</h2>
+               <p>Plan for teams, which prove strength lies in unity.</p>
+               <button>Signup</button>
+           </div>
+       </div>
+   </section>
+
+   <footer>
+    <div class="footer-info">
+        <h2>Charts<i>Tech</i></h2>
+        <span>Bring Life to Your Data.</span>
+        <button class="login" onclick="openLogin()">Login</button>
+        <button class="signup" onclick="openSignUp()">Sign Up</button>
+    </div>
+    <div class="footer-links">
+        <a href="#">Links</a>
+        <a href="#">Docs</a>
+        <a href="#">Help</a>
+        <a href="#">Support</a>
+    </div>
+   </footer>
+
+   <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HIF191QhDGPrZU" async> </script> </form> -->
+
+   <script src="/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+@use './variables' as variables;
+section.hero-section{
+    width:100%;
+    height:calc(100vw * (874 / 1950));
+    margin:0px;
+    background-size:cover;
+    background-position:left top;
+    background-repeat:no-repeat;
+    background-image:url('/images/hero_bg_new.svg');
+    margin-top:1.5em;
+    padding-left:3em;
+    box-sizing: border-box;
+    color:variables.$my_black;
+    @media only screen and (max-width:1350px){
+        font-size:0.8em;
+    }
+    @media only screen and (max-width:950px){
+        background-image:none;
+        text-align:center;
+        padding-left:0px;
+        height:auto;
+        margin-bottom:4em;
+        &>i{
+            display:block;
+            width:10em;
+            height:10em;
+            border-radius:50%;
+            background-size:contain;
+            background-position:center; 
+            background-color:black;
+            margin: 1em auto;
+            margin-top:3em;
+        }
+    }
+    &>h1{
+        font-size:8em;
+        margin:0px;
+        padding:0.1em 0px;
+        padding-bottom:0px;
+        font-family:variables.$heading_font;
+        font-weight:bold;
+        text-transform:uppercase;
+
+        @media only screen and (max-width:768px){
+            font-size:4em;
+        }
+
+        &>i{
+            font-style:normal;
+            font-weight:600;
+            font-size:0.7em;
+        }
+    }
+    &>span{
+        font-size:2em;
+        font-family:variables.$text_font;
+        font-weight:550;
+        width:650px;
+        line-height:1.4em;
+        display:block;
+        margin:1.5em 0px;
+        @media only screen and (max-width:950px){
+            text-align:center;
+            margin:1.5em auto;
+        }
+        @media only screen and (max-width:768px){
+            width:90%;
+        }
+    }
+    &>a{
+        display:inline-flex;
+        align-items:center;
+        color:inherit;
+        font-family:variables.$text_font;
+        text-decoration:none;
+        font-weight:bold;
+        font-size:1.5em;
+        color:white;
+        padding:0.5em 1em;
+        background-color:variables.$my_black;
+        border-radius:2em;
+        &>i{
+            display:inline-block;
+            background-size:contain;
+            background-image:url('/images/Vector.svg');
+            background-position:center;
+            margin-left:1em;
+            width:1.5em;
+            height:1.5em;
+        }
+    }
+}
+
