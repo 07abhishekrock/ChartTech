@@ -1,5 +1,7 @@
 @use './variables' as variables;
 section.plans-section{
+    margin-top:4em;
+    border-top:20px solid #f1f1f1;
     &>div.plans{
         display:flex;
         margin:2em 0px;
@@ -76,7 +78,6 @@ section.plans-section{
 
     @media only screen and (max-width:923px){
         margin-top:4em;
-        border-top:20px solid #f1f1f1;
         &>div.plans{
             font-size:0.8em;
             flex-flow:column;

@@ -10,7 +10,7 @@ section.flex-banner{
     box-sizing: border-box;
     position:relative;
     &>h1{
-        font-size:3.5em;
+        font-size:3.6em;
         margin:0px;
         width:500px;
     }
@@ -29,9 +29,9 @@ section.flex-banner{
         &>div.flex-banner-image{
             background-size:contain;
             background-position:center top;
-            width:550px;
+            width:600px;
             position:absolute;
-            height:calc(550px * calc(537 / 780));
+            height:calc(600px * calc(537 / 780));
             background-color:transparent;
             background-repeat: no-repeat;
         }

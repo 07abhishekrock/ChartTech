@@ -333,7 +333,7 @@ section.flex-banner {
   position: relative;
 }
 section.flex-banner > h1 {
-  font-size: 3.5em;
+  font-size: 3.6em;
   margin: 0px;
   width: 500px;
 }
@@ -353,9 +353,9 @@ section.flex-banner > div.flex-banner-outer::after {
 section.flex-banner > div.flex-banner-outer > div.flex-banner-image {
   background-size: contain;
   background-position: center top;
-  width: 550px;
+  width: 600px;
   position: absolute;
-  height: calc(550px * calc(537 / 780));
+  height: calc(600px * calc(537 / 780));
   background-color: transparent;
   background-repeat: no-repeat;
 }
@@ -468,6 +468,10 @@ section.flex-banner.right {
   }
 }
 
+section.plans-section {
+  margin-top: 4em;
+  border-top: 20px solid #f1f1f1;
+}
 section.plans-section > div.plans {
   display: flex;
   margin: 2em 0px;
@@ -542,7 +546,6 @@ section.plans-section > div.plans > div.plan.team > button {
 @media only screen and (max-width: 923px) {
   section.plans-section {
     margin-top: 4em;
-    border-top: 20px solid #f1f1f1;
   }
   section.plans-section > div.plans {
     font-size: 0.8em;
@@ -895,8 +898,8 @@ div.dashboard-wrapper > div.sidebar > div.sidebar-links > span.sidebar-link {
   cursor: pointer;
 }
 div.dashboard-wrapper > div.sidebar > div.sidebar-links > span.sidebar-link.yellow {
-  border-color: #FFB61D;
-  color: #FFB61D;
+  border-color: #FFAD00;
+  color: #FFAD00;
 }
 div.dashboard-wrapper > div.sidebar > div.sidebar-links > span.sidebar-link.yellow:hover {
   background-color: #FFB61D;
