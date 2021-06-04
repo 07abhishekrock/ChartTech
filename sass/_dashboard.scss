@@ -42,8 +42,8 @@ div.dashboard-wrapper{
                 border:3px solid black;
                 cursor:pointer;
                 &.yellow{
-                    border-color:variables.$my_yellow;
-                    color:variables.$my_yellow;
+                    border-color:#FFAD00;
+                    color:#FFAD00;
                     &:hover{
                         background-color:variables.$my_yellow;
                         color:white;
