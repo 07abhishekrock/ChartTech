@@ -31,11 +31,11 @@
                    <div class="form">
                         <div class="input-group">
                             <span class="label">Email</span>
-                            <input type="text"/>
+                            <input type="email"/>
                         </div>
                         <div class="input-group">
                             <span class="label">Password</span>
-                            <input type="password"/>
+                            <input type="password" required/>
                         </div>
                         <a href="dashboard.html" class="center-btn">Login</a>
                    </div>
@@ -47,29 +47,33 @@
            <div class="modal-left-bg">
                <span>SIGN UP</span>
            </div>
-           <span class="header-text">You need to register to use our API.</span>
+           <span class="header-text">You need to register to use our API.<i class="back-button"></i></span>
            <div class="form-wrapper">
                <div class="forms">
-                   <div class="form">
-                       <div class="input-group">
+                   <div class="form" id="signup-stage-1">
+                       <div class="input-group" id="signup-email">
                            <span>EMAIL</span>
-                           <input type="text"/>
+                           <input type="email" required/>
+                           <i class="field-footer">Error comes here.</i>
                        </div>
-                       <div class="input-group">
+                       <div class="input-group" id="signup-password">
                            <span>PASSWORD</span>
-                           <input type="password"/>
+                           <input type="password" required/>
+                           <i class="field-footer">Error comes here.</i>
                        </div>
-                       <div class="input-group">
+                       <div class="input-group" id="signup-confirm-password">
                            <span>CONFIRM PASSWORD</span>
-                           <input type="password"/>
+                           <input type="password" required/>
+                           <i class="field-footer">Error comes here.</i>
                        </div>
-                       <a class="center-btn" onclick="moveToPageIndex(1)">Next</a>
+                       <a class="center-btn">Next</a>
                    </div>
 
-                   <div class="form">
-                       <div class="input-group">
+                   <div class="form" id="signup-stage-2">
+                       <div class="input-group" id="signup-username">
                            <span>Username</span>
-                           <input type="text"/>
+                           <input type="text" required/>
+                           <i class="field-footer">Error comes here.</i>
                        </div>
                        <div class="input-group">
                            <span>Choose Plan</span>
@@ -86,7 +90,8 @@
                                 </div>
                            </div>
                        </div>
-                       <a class="center-btn" href="https://razorpay.com/payment-button/pl_HIF191QhDGPrZU/view/?utm_source=payment_button&utm_medium=button&utm_campaign=payment_button">Pay Now</a>
+                       <a class="center-btn">Pay Now</a>
+                        <!-- href="https://razorpay.com/payment-button/pl_HIF191QhDGPrZU/view/?utm_source=payment_button&utm_medium=button&utm_campaign=payment_button" -->
                    </div>
 
                </div>
@@ -186,8 +191,53 @@
     </div>
    </footer>
 
-   <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HIF191QhDGPrZU" async> </script> </form> -->
-
+   <button id="rzp-button1">Pay</button>
+   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+   <script>
+    var options = {
+        "key": "rzp_test_CknipYtCownoGC", // Enter the Key ID generated from the Dashboard
+        "amount": "500000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Acme Corp",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "order_HLLc3rBuuhQaK5", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "handler": function (response){
+            alert('payment success');
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature)
+        },
+        "prefill": {
+            "name": "Gaurav Kumar",
+            "email": "gaurav.kumar@example.com",
+            "contact": "9999999999"
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+   </script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script src="./Element.js"></script>
+   <script src="./form.js"></script>
    <script src="./app.js"></script>
 
 </body>

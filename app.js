@@ -1,67 +1,3 @@
-class MyElement{
-    constructor(query_string){
-        this.DOMRef = document.querySelector(query_string); 
-    }
-
-    changeStyle(styles){
-        for(let Style in styles){
-            this.DOMRef.style[Style] = styles[Style];
-        }
-    }
-
-    toDefault = ()=>{
-        this.DOMRef.style = "";
-    }
-
-    hide = ()=>{
-        this.toDefault();
-        this.changeStyle({
-            "opacity":0,
-            "pointer-events":'none'
-        })
-    }
-
-    dontRender = ()=>{
-        this.toDefault();
-        this.changeStyle({
-            "display":'none'
-        })
-    }
-
-    init = (view_state = false)=>{
-        if(!view_state){
-            this.hide();
-        }
-        return this;
-    }
-
-    translate = (x='0px',y='0px',z='0px')=>{
-        this.changeStyle({
-            'transform':`translate3d(${x},${y},${z})`
-        })
-    }
-
-    removeClass = (class_string)=>{
-        this.DOMRef.classList.remove(class_string);
-    }
-
-    addClass = (class_string)=>{
-        this.DOMRef.classList.add(class_string);
-    }
-
-}
-
-class ElementGroup{
-    constructor(elements){
-        this.elements_array = elements;
-    }
-    removeClassName = (class_string)=>{
-        this.elements_array.forEach((element)=>{
-            element.removeClass(class_string);
-        })
-    }
-}
-
 let modal_wrapper_ref = new MyElement('div.modal-wrapper').init();
 let login_ref = new MyElement('div.modal-wrapper>div.login.modal-inner').init();
 let signup_ref = new MyElement('div.modal-wrapper>div.signup.modal-inner').init();
@@ -73,6 +9,49 @@ let planTeam = new MyElement('div.plans>div.plan:last-child').init(true);
 let groupPlans = new ElementGroup([
     planSingle , planTeam
 ]);
+
+let planSingleObject = {
+
+    "key": "rzp_test_CknipYtCownoGC", // Enter the Key ID generated from the Dashboard
+    "amount": "500000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Single Plan",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_HLLc3rBuuhQaK5", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        console.log(response);
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+
+}
+let planTeamObject = {
+
+    "key": "rzp_test_CknipYtCownoGC", // Enter the Key ID generated from the Dashboard
+    "amount": "500000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Team Plan",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_HLLcYk8buT7sso", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        console.log(response);
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+
+}
+
+groupPlans.addCommonAttribute('plan_selected',planSingleObject)
 
 openLogin = ()=>{
     modal_wrapper_ref.toDefault();
@@ -101,11 +80,42 @@ setSelectedState = (type_string)=>{
     switch(type_string){
         case 'single' : 
             planSingle.addClass('selected');
+            groupPlans.addCommonAttribute('plan_selected',planSingleObject);
             break;
         case 'team' : 
             planTeam.addClass('selected');
+            groupPlans.addCommonAttribute('plan_selected',planTeamObject);
             break;
         default :
             break;
     }
 }
+
+
+//login and signup form
+let next_btn_signup = new MyElement('div.form#signup-stage-1>a.center-btn').init(true);
+let back_btn_signup = new MyElement('div.signup span.header-text>i.back-button').init();
+let password_signup_field = new PasswordInputElement('#signup-password>input','#signup-password>i' , ()=>back_btn_signup.synthetic_click , 'password');
+let signup_form = new FormObject('div.form#signup-stage-2>a.center-btn', 
+[
+    new EmailInputElement('#signup-email>input','#signup-email>i' , back_btn_signup.synthetic_click , 'email'),
+    password_signup_field,
+    new ConfirmPasswordElement('#signup-confirm-password>input','#signup-confirm-password>i' , password_signup_field, back_btn_signup.synthetic_click),
+    new NonEmptyElement('#signup-username>input','#signup-username>i',()=>next_btn_signup.synthetic_click , 'userName')
+]
+).init(groupPlans);
+
+next_btn_signup.bindEvent(()=>{
+    return ()=>{
+        moveToPageIndex(1);
+        back_btn_signup.toDefault();
+    }
+} , 'click')
+
+back_btn_signup.bindEvent(()=>{
+    return ()=>{
+        moveToPageIndex(0);
+        back_btn_signup.hide();
+    }
+} , 'click')
+
